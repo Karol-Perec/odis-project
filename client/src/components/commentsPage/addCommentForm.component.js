@@ -43,7 +43,7 @@ function AddCommentForm(props) {
       };
 
       axios
-        .post(process.env.REACT_APP_API_URL + '/api/comments/add', comment)
+        .post('/api/comments/add', comment)
         .then(() => props.refreshCommentsList());
     }
   }

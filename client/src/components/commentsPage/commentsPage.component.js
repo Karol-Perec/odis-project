@@ -13,7 +13,7 @@ function CommentsPage(props) {
   }, []);
 
   function refreshCommentsList() {
-    axios.get(process.env.REACT_APP_API_URL + '/api/comments/get').then(res => {
+    axios.get('/api/comments/get').then(res => {
       setCommentsListState(res.data);
     });
   }

@@ -46,11 +46,9 @@ function App() {
 
     setSecure(prev => {
       if (prev) {
-        html.style.background = 'black';
-        html.style.filter = 'invert(1) hue-rotate(180deg)';
+        html.style.background = '#f0f0f0'
       } else {
         html.style.background = 'white';
-        html.style.filter = 'invert(0)  hue-rotate(0deg)';
       }
       return !prev;
     });
@@ -59,8 +57,7 @@ function App() {
   function verify() {
     if (odisSession) {
       axios
-        .post(
-          process.env.REACT_APP_API_URL + '/api/userSession/verify',
+        .post('/api/userSession/verify',
           odisSession
         )
         .then(res => {

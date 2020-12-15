@@ -51,7 +51,7 @@ function LoginForm(props) {
       };
 
       axios
-        .post(process.env.REACT_APP_API_URL + '/api/users/login', user)
+        .post('/api/users/login', user)
         .then((res) => {
           setUsername('');
           setPassword('');
@@ -60,7 +60,7 @@ function LoginForm(props) {
             props.setOdisUser(res.data.user);
 
             axios
-              .post(process.env.REACT_APP_API_URL + '/api/userSession/add', {
+              .post('/api/userSession/add', {
                 userid: res.data.user._id,
               })
               .then((res) => {
@@ -92,7 +92,7 @@ function LoginForm(props) {
       };
 
       axios
-        .post(process.env.REACT_APP_API_URL + '/api/users/badlogin', user)
+        .post('/api/users/badlogin', user)
         .then((res) => {
           setUsername('');
           setPassword('');
@@ -101,7 +101,7 @@ function LoginForm(props) {
             props.setOdisUser(res.data.user);
 
             axios
-              .post(process.env.REACT_APP_API_URL + '/api/userSession/add', {
+              .post('/api/userSession/add', {
                 userid: res.data.user._id,
               })
               .then((res) => {

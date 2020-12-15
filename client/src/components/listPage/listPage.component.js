@@ -58,7 +58,7 @@ function ListPage(props) {
   function getTasks() {
     if (props.isSecure) {
       axios
-        .post(process.env.REACT_APP_API_URL + '/api/tasks/', odisUser)
+        .post('/api/tasks/', odisUser)
         .then(res => {
           setTaskList(res.data);
         })
@@ -67,9 +67,7 @@ function ListPage(props) {
         });
     } else {
       axios
-        .get(
-          process.env.REACT_APP_API_URL +
-            '/api/tasks/?userid=' +
+        .get('/api/tasks/?userid=' +
             odisUser._id
         )
         .then(res => {
@@ -89,7 +87,7 @@ function ListPage(props) {
       };
 
       axios
-        .post(process.env.REACT_APP_API_URL + '/api/tasks/add', newTask)
+        .post('/api/tasks/add', newTask)
         .then(res => {
           setTask('');
           const updatedTaskList = JSON.parse(JSON.stringify(taskList));
@@ -104,7 +102,7 @@ function ListPage(props) {
 
   function removeTask(task) {
     axios
-      .delete(process.env.REACT_APP_API_URL + '/api/tasks/' + task._id)
+      .delete('/api/tasks/' + task._id)
       .then(res => {
         const updatedTaskList = JSON.parse(JSON.stringify(taskList)).filter(
           task => task._id !== res.data
@@ -118,7 +116,7 @@ function ListPage(props) {
 
   function markTask(task) {
     axios
-      .post(process.env.REACT_APP_API_URL + '/api/tasks/update/' + task._id, {
+      .post('/api/tasks/update/' + task._id, {
         finished: !task.finished
       })
       .then(res => {

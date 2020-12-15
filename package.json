@@ -1,21 +1,22 @@
 {
-  "name": "odis",
+  "name": "odis-project",
   "version": "1.0.0",
   "description": "",
-  "main": "backend/serverjs",
+  "main": "server.js",
   "scripts": {
-    "start": "npm run start --prefix backend",
-    "client-install": "npm install --prefix frontend && npm run build --prefix client",
-    "backend-install": "npm install --prefix backend",
-    "install": "concurrently \"npm run backend-install\" \"npm run client-install\"",
-    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run start --prefix frontend\""
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^5.1.0"
-  },
-  "engines": {
-    "node": "14.x"
+    "bcrypt": "5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.4"
   }
 }

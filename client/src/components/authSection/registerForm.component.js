@@ -59,7 +59,7 @@ function RegisterForm(props) {
       };
 
       axios
-        .post(process.env.REACT_APP_API_URL + '/api/users/register', user)
+        .post('/api/users/register', user)
         .then(res => {
           props.onSubmit();
           setUsername('');

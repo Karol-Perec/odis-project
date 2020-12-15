@@ -85,8 +85,7 @@ function StartPage(props) {
   function logout(e) {
     e.preventDefault();
     axios
-      .delete(
-        process.env.REACT_APP_API_URL + '/api/userSession/' + odisSession._id
+      .delete('/api/userSession/' + odisSession._id
       )
       .then((res) => {
         clearStorage('odis-user');
