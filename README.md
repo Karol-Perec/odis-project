@@ -3,7 +3,7 @@ Dealing with OWASP security issues in web app (React)
 
 ## Demo
 
-https://karol-perec.github.io/sandwich-app/
+https://security-react.herokuapp.com/
 
 ## Things used:
 - React.js
